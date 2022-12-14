@@ -1,0 +1,48 @@
+<mat-card *ngIf="spinner==false">
+  <form (submit)="onSavePost(postForm)" #postForm="ngForm">
+    <mat-form-field>
+      <mat-panel-description>
+        Pedido
+        <input matInput type="text" name="title" [ngModel]="post?.title" required #title="ngModel">
+        <mat-error *ngIf="title.invalid">Razón del pedido</mat-error>
+      </mat-panel-description>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-panel-description>
+        Descripción
+        <textarea matInput rows="6" name="content" [ngModel]="post?.content" required #content="ngModel"></textarea>
+        <mat-error *ngIf="content.invalid">No hay ninguna descripción</mat-error>
+      </mat-panel-description>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-panel-description>
+        Pares
+        <textarea matInput rows="4" name="pares" [ngModel]="post.pares" required #pares="ngModel"></textarea>
+        <mat-error *ngIf="pares.invalid">No has indicado los pares</mat-error>
+      </mat-panel-description>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-panel-description>
+        Tipo de proceso
+        <textarea matInput rows="6" name="process" [ngModel]="post.process" required #process="ngModel"></textarea>
+        <mat-error *ngIf="pares.invalid">No has indicado el proceso </mat-error>
+      </mat-panel-description>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-panel-description>
+        Estilo
+        <textarea matInput rows="4" name="style" [ngModel]="post.style" required #style="ngModel"></textarea>
+        <mat-error *ngIf="pares.invalid">No has indicado el estilo </mat-error>
+      </mat-panel-description>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-panel-description>
+        Corrida
+        <textarea matInput rows="4" name="corrida" [ngModel]="post.corrida" required #corrida="ngModel"></textarea>
+        <mat-error *ngIf="pares.invalid">No has indicado la corrida </mat-error>
+      </mat-panel-description>
+    </mat-form-field>
+    <button mat-flat-button color="primary" type="submit">Guardar</button>
+  </form>
+</mat-card>
+<mat-spinner *ngIf="spinner==true"></mat-spinner>

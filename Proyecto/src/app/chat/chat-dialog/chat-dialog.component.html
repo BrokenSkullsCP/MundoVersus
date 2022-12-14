@@ -1,0 +1,5 @@
+<ng-container *ngFor="let message of messages |async">
+  <div class="message" [ngClass]="{'from':message.sentBy === 'bot', 'to':message.sentBy === 'user'}">
+    {{message.content}}
+  </div>
+</ng-container>
